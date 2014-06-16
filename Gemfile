@@ -33,6 +33,7 @@ gem 'bootstrap-sass'
 gem 'pg_search'
 
 group :test do
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'shoulda'
 end

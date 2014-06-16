@@ -24,17 +24,21 @@ RSpec.describe SongsController, :type => :controller do
   # Song. As you add validations to Song, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    attributes_for :song
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    valid_attributes.merge(title: "")
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # SongsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { {  } }
+  before do
+    user = create(:user)
+    sign_in user
+  end
 
   describe "GET index" do
     it "assigns all songs as @songs" do
@@ -103,14 +107,14 @@ RSpec.describe SongsController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        valid_attributes.merge(title: "It's a new title")
       }
 
       it "updates the requested song" do
         song = Song.create! valid_attributes
         put :update, {:id => song.to_param, :song => new_attributes}, valid_session
         song.reload
-        skip("Add assertions for updated state")
+        expect(song.title).to eq "It's a new title"
       end
 
       it "assigns the requested song as @song" do
