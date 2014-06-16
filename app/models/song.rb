@@ -1,4 +1,6 @@
 class Song < ActiveRecord::Base
+  belongs_to :user
+
   CHROMATIC_SCALE = %w(Ab A A# Bb B C C# Db D D# Eb E F F# Gb G G#)
 
   validates :title, :content, presence: true
