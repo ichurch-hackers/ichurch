@@ -25,13 +25,15 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+gem 'bootstrap-kaminari-views'
+gem 'bootstrap-sass'
 gem 'cancancan'
 gem 'devise'
+gem 'kaminari'
 gem 'pg'
+gem 'pg_search'
 gem 'slim-rails'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
-gem 'bootstrap-sass'
-gem 'pg_search'
 
 group :test do
   gem 'factory_girl_rails'

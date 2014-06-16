@@ -40,6 +40,9 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
+    bootstrap-kaminari-views (0.0.3)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
     builder (3.2.2)
@@ -74,6 +77,9 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    kaminari (0.15.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -183,6 +189,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-kaminari-views
   bootstrap-sass
   cancancan
   coffee-rails (~> 4.0.0)
@@ -190,6 +197,7 @@ DEPENDENCIES
   factory_girl_rails
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   pg
   pg_search
   rails (= 4.1.1)
