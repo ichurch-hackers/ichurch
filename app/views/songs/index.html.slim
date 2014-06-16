@@ -11,6 +11,7 @@ table class="table table-striped"
       th= model_class.human_attribute_name(:key)
       th= model_class.human_attribute_name(:version_comment)
       th= model_class.human_attribute_name(:created_at)
+      th= model_class.human_attribute_name(:created_by)
       th=t '.actions', :default => t("helpers.actions")
   tbody
     - @songs.each do |song|
@@ -21,7 +22,8 @@ table class="table table-striped"
         td= song.author
         td= song.key
         td= song.version_comment
-        td=l song.created_at
+        td= song.created_at
+        td= song.user.name if song.user
         td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_song_path(song), :class => 'btn btn-default btn-xs'
           '

@@ -3,6 +3,7 @@ require 'rails_helper'
 describe Song, :type => :model do
   it { should validate_presence_of :title }
   it { should validate_presence_of :content }
+  it { should belong_to :user }
 
   it "validates key within the chromatic scale" do
     song = Song.new(key: "H")
