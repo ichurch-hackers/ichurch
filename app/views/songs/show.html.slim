@@ -4,34 +4,9 @@
     li= link_to "Link 2", "/path2"
     li= link_to "Link 3", "/path3"
 
-- model_class = Song
-/* div class="page-header"*/
-.row
-  h3
-    = @song.title
+= render 'song'
 
-.row
-  - creds = [@song.author]
-  - creds << "CCLI #{@song.ccli}" if @song.ccli
-  p = creds.compact.join(" - ")
-
-- if @song.version_comment
-  .row
-    .alert.alert-warning
-      p = @song.version_comment
-
-.row
-  .song-content
-    - @song.to_chord_lines.each do |css, line|
-      div class="#{css}" = line
-
-.row
-  p
-    strong = model_class.human_attribute_name(:copyright) + ':'
-    '
-    = @song.copyright
-
-  = link_to t('.back', :default => t("helpers.links.back")), songs_path, :class => 'btn btn-default'
+= link_to t('.back', :default => t("helpers.links.back")), songs_path, :class => 'btn btn-default'
   /'
   /= link_to t('.edit', :default => t("helpers.links.edit")), edit_song_path(@song), :class => 'btn btn-default'
   /'
