@@ -20,6 +20,7 @@ class SongsController < ApplicationController
 
   # GET /songs/1/edit
   def edit
+    redirect_to @song, alert: "You can't edit that song." and return unless can?(:edit, @song)
   end
 
   # POST /songs
@@ -42,6 +43,7 @@ class SongsController < ApplicationController
   # PATCH/PUT /songs/1
   # PATCH/PUT /songs/1.json
   def update
+    redirect_to @song, alert: "You can't edit that song." and return unless can?(:edit, @song)
     respond_to do |format|
       if @song.update(song_params)
         format.html { redirect_to @song, notice: 'Song was successfully updated.' }
@@ -56,6 +58,7 @@ class SongsController < ApplicationController
   # DELETE /songs/1
   # DELETE /songs/1.json
   def destroy
+    redirect_to @song, alert: "You can't delete that song." and return unless can?(:destroy, @song)
     @song.destroy
     respond_to do |format|
       format.html { redirect_to songs_url, notice: 'Song was successfully destroyed.' }

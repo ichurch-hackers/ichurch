@@ -129,7 +129,15 @@ RSpec.describe SongsController, :type => :controller do
         expect(response).to redirect_to(song)
       end
 
-      context "when the current user doesn't own the song"
+      context "when the current user doesn't own the song" do
+        it "rejects the change" do
+          song = Song.create! valid_attributes.merge(user_id: user.id - 1)
+          put :update, {:id => song.to_param, :song => new_attributes}, valid_session
+          expect(response).to redirect_to(song)
+          song.reload
+          expect(song.title).to eq valid_attributes[:title]
+        end
+      end
     end
 
     describe "with invalid params" do
@@ -148,6 +156,13 @@ RSpec.describe SongsController, :type => :controller do
   end
 
   describe "DELETE destroy" do
+    it "rejects if the user doesn't own the song" do
+      song = Song.create! valid_attributes.merge(user_id: user.id - 1)
+      expect {
+        delete :destroy, {:id => song.to_param}, valid_session
+      }.not_to change(Song, :count)
+    end
+
     it "destroys the requested song" do
       song = Song.create! valid_attributes
       expect {
