@@ -15,7 +15,7 @@ class SongsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: 'song.pdf', layout: 'print.html', margin: {
+        render pdf: @song.title, layout: 'print.html', margin: {
           left: 10, right: 0, top: 10, bottom: 0
         }
       end
