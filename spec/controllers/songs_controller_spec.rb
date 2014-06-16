@@ -19,12 +19,13 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe SongsController, :type => :controller do
+  let(:user) { create(:user) }
 
   # This should return the minimal set of attributes required to create a valid
   # Song. As you add validations to Song, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    attributes_for :song
+    attributes_for :song, user_id: user.id
   }
 
   let(:invalid_attributes) {
@@ -36,7 +37,6 @@ RSpec.describe SongsController, :type => :controller do
   # SongsController. Be sure to keep this updated too.
   let(:valid_session) { {  } }
   before do
-    user = create(:user)
     sign_in user
   end
 
@@ -128,6 +128,8 @@ RSpec.describe SongsController, :type => :controller do
         put :update, {:id => song.to_param, :song => valid_attributes}, valid_session
         expect(response).to redirect_to(song)
       end
+
+      context "when the current user doesn't own the song"
     end
 
     describe "with invalid params" do

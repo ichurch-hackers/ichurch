@@ -43,6 +43,7 @@ GEM
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
     builder (3.2.2)
+    cancancan (1.8.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -183,6 +184,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
+  cancancan
   coffee-rails (~> 4.0.0)
   devise
   factory_girl_rails
