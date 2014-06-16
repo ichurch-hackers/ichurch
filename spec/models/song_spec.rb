@@ -25,12 +25,16 @@ The river in the desert
       )
     }
 
+    def escape(str)
+      str.gsub(" ", "&nbsp;")
+    end
+
     it "returns an array of tuples [css : content]" do
       chord_lines = song.to_chord_lines
       expect(chord_lines).to eq [
-        ["section", "Verse 1"],
-        ["chords", "C   G   D"],
-        ["lyrics", "The river in the desert"],
+        ["section", escape("Verse 1")],
+        ["chords", escape("C   G   D")],
+        ["lyrics", escape("The river in the desert")],
       ]
     end
   end
