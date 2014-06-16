@@ -33,7 +33,7 @@ html lang="en"
               li= link_to "Logout #{current_user.email}", destroy_user_session_path, method: :delete if current_user
             - if current_user
               = form_for :search, url: songs_path, method: :get do |f|
-                = f.text_field :query, value: (params[:search] || {})[:query]
+                = f.text_field :query, value: (params[:search] || {})[:query], autofocus: true
                 = f.submit "Search"
 
     .container
