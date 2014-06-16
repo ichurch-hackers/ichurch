@@ -10,6 +10,11 @@ describe LineParser do
         line = LineParser.new.parse("Em D Fmaj7 C#")
         expect(line).to eq ["chords", escape("Em D Fmaj7 C#")]
       end
+
+      it "allows a slash in chords" do
+        line = LineParser.new.parse("Em/D Fmaj7 C#")
+        expect(line).to eq ["chords", escape("Em&#x2F;D Fmaj7 C#")]
+      end
     end
 
     context "with lyrics" do
