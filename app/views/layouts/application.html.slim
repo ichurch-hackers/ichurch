@@ -27,31 +27,24 @@ html lang="en"
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href="#"iChurch
-          .navbar-collapse.collapse.navbar-responsive-collapse
+          = link_to "iChurch", root_path, class: "navbar-brand"
+          .navbar-collapse.collapse.navbar-responsive-collapse.pull-right
             ul.nav.navbar-nav
-              li= link_to "Link 1", "/path1"
-              li= link_to "Link 2", "/path2"
-              li= link_to "Link 3", "/path3"
               li= link_to "Logout #{current_user.email}", destroy_user_session_path, method: :delete if current_user
-          - if current_user
-            = form_for :search, url: songs_path, method: :get do |f|
-              = f.text_field :query, value: (params[:search] || {})[:query]
-              = f.submit "Search"
+            - if current_user
+              = form_for :search, url: songs_path, method: :get do |f|
+                = f.text_field :query, value: (params[:search] || {})[:query]
+                = f.submit "Search"
 
     .container
       .row
-        .col-lg-9
+        div class="#{content_for?(:sidebar) ? "col-lg-9" : "col-lg-12"}"
           = bootstrap_flash
           = yield
-        .col-lg-3
-          .well.sidebar-nav
-            h3 Sidebar
-            ul.nav.nav-list
-              li.nav-header Sidebar
-              li= link_to "Link 1", "/path1"
-              li= link_to "Link 2", "/path2"
-              li= link_to "Link 3", "/path3"
+        - if content_for?(:sidebar)
+          .col-lg-3#sidebar
+            .well.sidebar-nav
+              = yield(:sidebar)
 
       footer
-        p &copy; Company 2014
+        p iChurch

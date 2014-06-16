@@ -8,8 +8,8 @@ class Song < ActiveRecord::Base
 
   include PgSearch
   pg_search_scope :full_search,
-                  against:  [:title, :content, :author, :version_comment],
-                  using:  {
+                  against:  [:title, :content, :author],
+                  using: {
                     tsearch: {
                       dictionary: "english",
                       prefix:   true,

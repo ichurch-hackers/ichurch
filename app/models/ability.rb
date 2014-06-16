@@ -2,11 +2,10 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    return false unless user
-
-    can :read, Song, :all
+    can :read, Song
     can :update, Song, user_id: user.id
     can :destroy, Song, user_id: user.id
+    # can :destroy, Song#, user_id: user.id
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
