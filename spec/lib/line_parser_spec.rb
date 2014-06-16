@@ -12,8 +12,8 @@ describe LineParser do
       end
 
       it "allows a slash in chords" do
-        line = LineParser.new.parse("Em/D Fmaj7 C#")
-        expect(line).to eq ["chords", escape_spaces("Em&#x2F;D Fmaj7 C#")]
+        line = LineParser.new.parse("Em/D Fmaj7 C#/F#")
+        expect(line).to eq ["chords", escape_spaces("Em&#x2F;D Fmaj7 C#&#x2F;F#")]
       end
     end
 
