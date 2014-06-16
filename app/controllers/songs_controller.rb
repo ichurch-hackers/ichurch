@@ -12,8 +12,6 @@ class SongsController < ApplicationController
   # GET /songs/1.json
   def show
     @song = SongPresenter.new(@song)
-    # pdf = WickedPdf.new.pdf_from_string('<h1>Hello There!</h1>')
-    # send_data pdf, file_name: 'file.pdf', disposition: 'inline'
     respond_to do |format|
       format.html
       format.pdf do

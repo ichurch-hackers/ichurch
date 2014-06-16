@@ -1,13 +1,10 @@
 - model_class = Song
-/* div class="page-header"*/
 .row
   h3
     = @song.title
 
 .row.author
-  - creds = [@song.author]
-  - creds << "CCLI #{@song.ccli}" if @song.ccli.present?
-  p = creds.compact.join(" - ")
+  p = @song.author_ccli
 
 - if @song.version_comment
   .row.version-comment
