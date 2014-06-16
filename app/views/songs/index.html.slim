@@ -6,13 +6,10 @@ table class="table table-striped"
     tr
       th= model_class.human_attribute_name(:id)
       th= model_class.human_attribute_name(:title)
+      th= model_class.human_attribute_name(:first_line)
       th= model_class.human_attribute_name(:author)
-      th= model_class.human_attribute_name(:content)
       th= model_class.human_attribute_name(:key)
-      th= model_class.human_attribute_name(:ccli)
-      th= model_class.human_attribute_name(:body_font_size)
       th= model_class.human_attribute_name(:version_comment)
-      th= model_class.human_attribute_name(:copyright)
       th= model_class.human_attribute_name(:created_at)
       th=t '.actions', :default => t("helpers.actions")
   tbody
@@ -20,13 +17,10 @@ table class="table table-striped"
       tr
         td= link_to song.id, song_path(song)
         td= song.title
+        td= song.first_line
         td= song.author
-        td= song.content
         td= song.key
-        td= song.ccli
-        td= song.body_font_size
         td= song.version_comment
-        td= song.copyright
         td=l song.created_at
         td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_song_path(song), :class => 'btn btn-default btn-xs'

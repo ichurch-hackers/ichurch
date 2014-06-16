@@ -30,6 +30,7 @@ gem 'pg'
 gem 'slim-rails'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 gem 'bootstrap-sass'
+gem 'pg_search'
 
 group :test do
   gem 'rspec-rails'
