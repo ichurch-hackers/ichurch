@@ -33,6 +33,9 @@ html lang="en"
               li= link_to "Link 1", "/path1"
               li= link_to "Link 2", "/path2"
               li= link_to "Link 3", "/path3"
+          = form_for :search, url: songs_path, method: :get do |f|
+            = f.text_field :query, value: (params[:search] || {})[:query]
+            = f.submit
 
     .container
       .row
