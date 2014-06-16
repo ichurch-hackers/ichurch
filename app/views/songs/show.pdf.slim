@@ -6,7 +6,7 @@
 .row.author
   p = @song.author_ccli
 
-- if @song.version_comment
+- if @song.version_comment.present?
   .row.version-comment
     .alert.alert-warning
       p = @song.version_comment
@@ -16,8 +16,9 @@
     - @song.to_chord_lines.each do |css, line|
       div class="#{css}" = line
 
-.row.copyright
-  p
-    strong = model_class.human_attribute_name(:copyright) + ':'
-    '
-    = @song.copyright
+- if @song.copyright.present?
+  .row.copyright
+    p
+      strong = model_class.human_attribute_name(:copyright) + ':'
+      '
+      = @song.copyright
