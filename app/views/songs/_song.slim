@@ -1,10 +1,11 @@
 - model_class = Song
 .row
-  h3
-    = @song.title
+  h3 = @song.title
 
 .row.author
-  p = @song.author_ccli
+  span = @song.author_ccli
+  - if @song.key.present?
+    span.key Key: #{@song.key}
 
 - if @song.version_comment.present?
   .row.version-comment
