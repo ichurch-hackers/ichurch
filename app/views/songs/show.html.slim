@@ -12,7 +12,7 @@
 
 .row
   - creds = [@song.author]
-  - creds << "CCLI #{@song.ccli}" if @song.ccli
+  - creds << "CCLI #{@song.ccli}" if @song.ccli.present?
   p = creds.compact.join(" - ")
 
 - if @song.version_comment
