@@ -3,4 +3,9 @@ class Song < ActiveRecord::Base
 
   validates :title, :content, presence: true
   validates :key, inclusion: CHROMATIC_SCALE
+
+  def to_chord_lines
+    parser = LineParser.new
+    content.split("\n").map { |line| parser.parse(line) }
+  end
 end

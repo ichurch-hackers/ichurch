@@ -13,4 +13,25 @@ describe Song, :type => :model do
     song.valid?
     expect(song.errors[:key]).to be_blank
   end
+
+  describe "#to_chord_lines" do
+    let(:song) {
+      Song.new(
+        content: "
+[Verse 1]
+C   G   D
+The river in the desert
+        ".strip
+      )
+    }
+
+    it "returns an array of tuples [css : content]" do
+      chord_lines = song.to_chord_lines
+      expect(chord_lines).to eq [
+        ["section", "Verse 1"],
+        ["chords", "C   G   D"],
+        ["lyrics", "The river in the desert"],
+      ]
+    end
+  end
 end

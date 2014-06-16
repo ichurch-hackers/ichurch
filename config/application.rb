@@ -21,6 +21,8 @@ module Ichurch
     # config.i18n.default_locale = :de
     config.assets.initialize_on_precompile = false
 
+    config.autoload_paths << "lib"
+
     config.generators do |generate|
       generate.helper false
       generate.javascript_engine false
