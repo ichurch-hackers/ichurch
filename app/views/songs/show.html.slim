@@ -16,8 +16,9 @@ h3
 /*   = simple_format @song.content*/
 
 .row
-  - @song.to_chord_lines.each do |css, line|
-    div class="#{css}" = line
+  .song-content
+    - @song.to_chord_lines.each do |css, line|
+      div class="#{css}" = line
 
 p
   strong= model_class.human_attribute_name(:copyright) + ':'
