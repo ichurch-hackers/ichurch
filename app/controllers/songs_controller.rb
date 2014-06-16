@@ -5,7 +5,7 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    @songs = Song.search(params[:search][:query])
+    @songs = Song.search((params[:search] || {})[:query])
   end
 
   # GET /songs/1

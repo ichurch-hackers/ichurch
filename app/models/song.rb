@@ -22,7 +22,13 @@ class Song < ActiveRecord::Base
   end
 
   def first_line
-    lines = self.content.split("\n")
-    lines[2]
+    to_chord_lines.find { |css, line|
+      css == 'lyrics'
+    }.last
+  end
+
+  def to_chord_lines
+    parser = LineParser.new
+    content.split("\n").map { |line| parser.parse(line) }
   end
 end
