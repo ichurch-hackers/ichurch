@@ -2,34 +2,18 @@
 div class="page-header"
   h1=t '.title', :default => model_class.model_name.human.titleize
 
-p
-  strong= model_class.human_attribute_name(:title) + ':'
-  br
+h3
   = @song.title
-p
-  strong= model_class.human_attribute_name(:author) + ':'
-  br
-  = @song.author
-p
-  strong= model_class.human_attribute_name(:content) + ':'
-  br
-  = @song.content
-p
-  strong= model_class.human_attribute_name(:key) + ':'
-  br
-  = @song.key
-p
-  strong= model_class.human_attribute_name(:ccli) + ':'
-  br
-  = @song.ccli
-p
-  strong= model_class.human_attribute_name(:body_font_size) + ':'
-  br
-  = @song.body_font_size
-p
-  strong= model_class.human_attribute_name(:version_comment) + ':'
-  br
-  = @song.version_comment
+.row
+  p
+    | #{@song.author} - CCLI #{@song.ccli}
+.row
+  .alert.alert-warning
+    p
+      br
+      = @song.version_comment
+pre
+  = simple_format @song.content
 p
   strong= model_class.human_attribute_name(:copyright) + ':'
   br
