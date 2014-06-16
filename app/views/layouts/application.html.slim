@@ -27,10 +27,12 @@ html lang="en"
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          = link_to "iChurch", root_path, class: "navbar-brand"
+          = link_to image_tag("ichurch-logo.png"), root_path, class: "navbar-brand"
           .navbar-collapse.collapse.navbar-responsive-collapse.pull-right
-            ul.nav.navbar-nav
-              li= link_to "Logout #{current_user.email}", destroy_user_session_path, method: :delete if current_user
+            ul.nav.navbar-nav.pull-right
+              li
+                span Welcome, <b>#{current_user.name}</b>! &nbsp;&nbsp;
+                span = link_to "Log out", destroy_user_session_path, method: :delete if current_user
             - if current_user
               = form_for :search, url: songs_path, method: :get do |f|
                 = f.text_field :query, value: (params[:search] || {})[:query], autofocus: true
