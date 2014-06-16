@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 ruby '2.1.2'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use SCSS for stylesheets
@@ -34,6 +33,7 @@ gem 'bootstrap-sass'
 
 group :test do
   gem 'rspec-rails'
+  gem 'shoulda'
 end
 
 group :production do
