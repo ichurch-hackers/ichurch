@@ -29,6 +29,8 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'pg'
 gem 'slim-rails'
+gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
+gem 'bootstrap-sass'
 
 group :test do
   gem 'rspec-rails'
