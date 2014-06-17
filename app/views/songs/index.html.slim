@@ -1,8 +1,8 @@
 - model_class = Song
 div class="page-header"
   h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
-  - unless (params[:search] || {})[:query].to_s == ''
-    h2 = "Results for '" + params[:search][:query] + "'"
+  - if params[:search] && params[:search][:query].present?
+    h2 = "Results for '#{params[:search][:query]}'"
 table class="table table-striped"
   thead
     tr
