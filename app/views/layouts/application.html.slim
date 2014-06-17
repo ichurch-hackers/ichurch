@@ -29,7 +29,8 @@ html lang="en"
           .navbar-collapse.collapse.navbar-responsive-collapse.pull-right
             ul.nav.navbar-nav.pull-right
               li
-                span Welcome, <b>#{current_user.name}</b>! &nbsp;&nbsp;
+                - if current_user
+                  span Welcome, <b>#{current_user.name}</b>! &nbsp;&nbsp;
                 span = link_to "Log out", destroy_user_session_path, method: :delete if current_user
             - if current_user
               = form_for :search, url: songs_path, method: :get, html: { class: 'form-inline' } do |f|
