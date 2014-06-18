@@ -29,8 +29,8 @@ class Song < ActiveRecord::Base
     }.last
   end
 
-  def to_chord_lines
-    parser = LineParser.new
+  def to_chord_lines(transpose: 0)
+    parser = LineParser.new(transpose: transpose)
     content.split("\n").map { |line| parser.parse(line) }
   end
 end

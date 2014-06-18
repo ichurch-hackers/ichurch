@@ -1,8 +1,16 @@
 class LineParser
+  def initialize(transpose: 0)
+    @transpose = transpose
+  end
+
   def parse(line)
     type = "lyrics"
 
-    type = "chords" if chords?(line)
+    if chords?(line)
+      type = "chords"
+      line = ChordTransposer.new(line).transpose(@transpose)
+    end
+
     if section = section?(line)
       type = "section"
       line = section
