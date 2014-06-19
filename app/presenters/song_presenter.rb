@@ -14,8 +14,28 @@ class SongPresenter < SimpleDelegator
     parts.join " - "
   end
 
+  def key
+    ChordTransposer.transpose_chord(super, transpose_distance)
+  end
+
   def to_chord_lines
     super(transpose: transpose_distance)
+  end
+
+  def sections
+    [].tap do |result|
+      current_section = []
+      to_chord_lines.each do |css, line|
+        if current_section.any? && css == "section"
+          result << current_section
+          current_section = []
+        end
+
+        current_section << [css, line]
+      end
+
+      result << current_section
+    end
   end
 
   def transpose_distances

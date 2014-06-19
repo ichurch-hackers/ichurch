@@ -36,7 +36,7 @@ class ChordTransposer
   def transpose(interval)
     chord_positions = get_chord_positions
     chord_positions.each do |cp|
-      cp[0] = transpose_chord(cp[0], interval)
+      cp[0] = ChordTransposer.transpose_chord(cp[0], interval)
     end
 
     interpolate_line chord_positions
@@ -83,7 +83,7 @@ class ChordTransposer
     output.strip
   end
 
-  def transpose_chord(chord, intervals)
+  def self.transpose_chord(chord, intervals)
     chord.gsub(/([A-G][#b]*)/) do
       chord_name, complement = $~.captures
       original_chord = SCALE_INTERVALS.find { |name, int| name == chord_name }

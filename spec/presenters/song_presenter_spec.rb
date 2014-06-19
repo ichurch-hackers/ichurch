@@ -56,4 +56,19 @@ describe SongPresenter do
       ]
     end
   end
+
+  describe "#key" do
+    it "transposes the original key" do
+      song = SongSamples.adventure
+      presenter = SongPresenter.new(song, 1)
+      expect(presenter.key).to eq "F"
+    end
+  end
+
+  describe "#sections" do
+    song = SongSamples.adventure
+    presenter = SongPresenter.new(song, 0)
+
+    raise presenter.sections.inspect
+  end
 end
