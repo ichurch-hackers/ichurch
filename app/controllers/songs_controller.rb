@@ -21,6 +21,7 @@ class SongsController < ApplicationController
           },
           footer: {
             left: @song.copyright.present? ? "© #{@song.copyright}".html_safe : "",
+            center: "[page] of [topage]",
             right: "www.ichurch.co.za",
             font_size: 8
           }
