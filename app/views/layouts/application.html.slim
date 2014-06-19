@@ -27,14 +27,13 @@ html lang="en"
             span.icon-bar
           = link_to image_tag("ichurch-logo.png"), root_path, class: "navbar-brand"
           .navbar-collapse.collapse.navbar-responsive-collapse.pull-right
-            ul.nav.navbar-nav.pull-right
-              li
-                - if current_user
-                  span Welcome, <b>#{current_user.name}</b>! &nbsp;&nbsp;
-                span = link_to "Log out", destroy_user_session_path, method: :delete if current_user
             - if current_user
-              = form_for :search, url: songs_path, method: :get, html: { class: 'form-inline' } do |f|
-                = f.text_field :query, value: (params[:search] || {})[:query], autofocus: true, class: 'form-control', placeholder: 'Search...'
+              ul.nav.navbar-nav.pull-right
+                li
+                  span Welcome, <b>#{current_user.name}</b>! &nbsp;&nbsp;
+                  span = link_to "Log out", destroy_user_session_path, method: :delete if current_user
+                = form_for :search, url: songs_path, method: :get, html: { class: 'form-inline' } do |f|
+                  = f.text_field :query, value: (params[:search] || {})[:query], autofocus: true, class: 'form-control', placeholder: 'Search...'
 
     .container
       .row
@@ -49,4 +48,3 @@ html lang="en"
     footer
       .container
         p.text-muted &copy; #{Time.now.year} #{link_to("iChurch on Rails", "https://github.com/ichurch-hackers/ichurch")}
-          
