@@ -66,9 +66,11 @@ describe SongPresenter do
   end
 
   describe "#sections" do
-    song = SongSamples.adventure
-    presenter = SongPresenter.new(song, 0)
+    it "groups sections together" do
+      song = SongSamples.adventure
+      presenter = SongPresenter.new(song, 0)
 
-    raise presenter.sections.inspect
+      expect(presenter.sections[0][0][0]).to eq "section"
+    end
   end
 end
