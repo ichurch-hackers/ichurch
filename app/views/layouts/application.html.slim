@@ -45,5 +45,6 @@ html lang="en"
             .well.sidebar-nav
               = yield(:sidebar)
 
-      footer
-        p iChurch
+    footer
+      .container
+        p.text-muted &copy; #{Time.now.year} #{link_to("iChurch on Rails", "https://github.com/ichurch-hackers/ichurch")}
