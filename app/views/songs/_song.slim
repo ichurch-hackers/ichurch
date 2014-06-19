@@ -14,7 +14,7 @@
 
 .row
   .song-content
-    - @song.to_chord_lines(transpose: @transpose_distance).each do |css, line|
+    - @song.to_chord_lines.each do |css, line|
       div class="#{css}" = line
 
 - if @song.copyright.present?

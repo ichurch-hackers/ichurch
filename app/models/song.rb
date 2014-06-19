@@ -24,9 +24,9 @@ class Song < ActiveRecord::Base
   end
 
   def first_line
-    to_chord_lines.find { |css, line|
-      css == 'lyrics'
-    }.last
+    (to_chord_lines.find { |css, line|
+      css == 'lyrics' && line.present?
+    } || []).last
   end
 
   def to_chord_lines(transpose: 0)

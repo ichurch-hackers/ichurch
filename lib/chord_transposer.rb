@@ -1,8 +1,36 @@
 class ChordTransposer
-  SCALE = %w(C C# D Eb E F F# G G# A Bb B)
+  SCALE = %w(A Bb B C C# D Eb E F F# G G#)
+
+  SCALE_INTERVALS = [
+    ["A", 0],
+    ["A#", 1],
+    ["Bb", 1],
+    ["B", 2],
+    ["C", 3],
+    ["C#", 4],
+    ["Db", 4],
+    ["D", 5],
+    ["D#", 6],
+    ["Eb", 6],
+    ["E", 7],
+    ["F", 8],
+    ["F#", 9],
+    ["Gb", 9],
+    ["G", 10],
+    ["G#", 11],
+    ["Ab", 11]
+  ]
 
   def initialize(chords)
     @chords = chords
+  end
+
+  def self.distance(base, target)
+    lookup = Hash[SCALE_INTERVALS]
+    base_interval = lookup[base]
+    target_interval = lookup[target]
+
+    target_interval - base_interval
   end
 
   def transpose(interval)
@@ -58,7 +86,8 @@ class ChordTransposer
   def transpose_chord(chord, intervals)
     chord.gsub(/([A-G][#b]*)/) do
       chord_name, complement = $~.captures
-      new_chord_name = SCALE[(SCALE.index(chord_name) + intervals) % SCALE.size]
+      original_chord = SCALE_INTERVALS.find { |name, int| name == chord_name }
+      new_chord_name = SCALE[(original_chord[1] + intervals) % SCALE.size]
       "#{new_chord_name}#{complement}"
     end
   end

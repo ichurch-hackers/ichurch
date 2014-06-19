@@ -1,8 +1,7 @@
 - content_for :sidebar do
   ul.nav.nav-list
-    li= link_to "Print as PDF", song_path(@song, format: 'pdf')
-    li= link_to "Link 2", "/path2"
-    li= link_to "Link 3", "/path3"
+    li = link_to "Print as PDF", song_path(@song, format: 'pdf')
+    li = select_tag "transpose", options_for_select(@song.transpose_distances, params[:transpose] || 0)
 
 = render 'song'
 

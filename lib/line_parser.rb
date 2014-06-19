@@ -23,7 +23,7 @@ class LineParser
   def chords?(line)
     chords = line.squeeze(" ").split(" ")
 
-    chords.all? { |chord|
+    chords.any? && chords.all? { |chord|
       is_chord = "ABCDEFG/".include?(chord[0])
 
       if is_chord && chord.length > 0

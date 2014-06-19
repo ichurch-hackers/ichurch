@@ -11,8 +11,7 @@ class SongsController < ApplicationController
   # GET /songs/1
   # GET /songs/1.json
   def show
-    @song = SongPresenter.new(@song)
-    @transpose_distance = params[:transpose].to_i || 0
+    @song = SongPresenter.new(@song, params[:transpose] || 0)
     respond_to do |format|
       format.html
       format.pdf do
