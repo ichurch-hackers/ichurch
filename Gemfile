@@ -37,7 +37,6 @@ gem 'pg_search'
 gem 'puma'
 gem 'slim-rails'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
-gem 'transpose_chords', github: 'patchfx/transpose_chords'
 gem 'wicked_pdf'
 
 group :test do
