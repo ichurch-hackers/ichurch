@@ -38,5 +38,14 @@ The river in the desert
         ["lyrics", escape("The river in the desert")],
       ]
     end
+
+    it "optionally transposes the chords" do
+      chord_lines = song.to_chord_lines(transpose: 1)
+      expect(chord_lines).to eq [
+        ["section", escape("Verse 1")],
+        ["chords", escape("C#  G#  Eb")],
+        ["lyrics", escape("The river in the desert")],
+      ]
+    end
   end
 end

@@ -14,8 +14,10 @@
 
 .row
   .song-content
-    - @song.to_chord_lines.each do |css, line|
-      div class="#{css}" = line
+    - @song.sections.each do |section|
+      .song-section-wrapper
+        - section.each do |css, line|
+          div class="#{css}" = line
 
 - if @song.copyright.present?
   .row.copyright

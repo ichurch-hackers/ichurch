@@ -11,13 +11,20 @@ class SongsController < ApplicationController
   # GET /songs/1
   # GET /songs/1.json
   def show
-    @song = SongPresenter.new(@song)
+    @song = SongPresenter.new(@song, params[:transpose] || 0)
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: @song.title, layout: 'print.html', margin: {
-          left: 10, right: 0, top: 10, bottom: 0
-        }
+        render pdf: @song.title, layout: 'print.html',
+          margin: {
+            left: 15, top: 12
+          },
+          footer: {
+            left: @song.copyright.present? ? "© #{@song.copyright}".html_safe : "",
+            center: "[page] of [topage]",
+            right: "www.ichurch.co.za",
+            font_size: 8
+          }
       end
     end
   end
