@@ -1,10 +1,4 @@
 GIT
-  remote: git://github.com/patchfx/transpose_chords.git
-  revision: 5aaf7af59d88b8a36c4888eee0d457fc50acb339
-  specs:
-    transpose_chords (0.0.4)
-
-GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 1d93c5a77049b3d21d17c847ad0531d7714fa229
   branch: bootstrap3
@@ -228,7 +222,6 @@ DEPENDENCIES
   shoulda
   slim-rails
   spring
-  transpose_chords!
   turbolinks
   twitter-bootstrap-rails!
   uglifier (>= 1.3.0)
