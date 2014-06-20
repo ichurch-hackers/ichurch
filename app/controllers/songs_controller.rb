@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_song, only: [:show, :edit, :update, :destroy]
 
   # GET /songs
@@ -14,6 +14,7 @@ class SongsController < ApplicationController
     @song = SongPresenter.new(@song, params[:transpose] || 0)
     respond_to do |format|
       format.html
+      format.xml
       format.pdf do
         render pdf: @song.title, layout: 'print.html',
           margin: {
