@@ -1,3 +1,3 @@
 $(document).on "ready page:load", ->
   $("#transpose").change ->
-    window.location.search = "?transpose=#{$(this).val()}"
+    Turbolinks.visit([window.location.origin, window.location.pathname, "?transpose=#{$(this).val()}"].join(""))
