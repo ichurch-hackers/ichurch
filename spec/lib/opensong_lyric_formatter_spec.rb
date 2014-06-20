@@ -21,7 +21,50 @@ describe OpensongLyricFormatter do
 
     it "formats the Adventure song" do
       song = SongSamples.adventure
-      expect(formatter.format(song)).to eq ""
+      expect(formatter.format(song)).to eq "[Intro]
+.A/C#    C#m B A B
+
+[V1]
+.C#m                   B
+ Look into My eyes and say you don't believe
+.A             B              C#m
+ All of this I did to be with you
+.C#m                 B
+ Darkness in the sky as My Father cried
+.A               B             C#m
+ And then He turned away and then I died
+
+[V2]
+.C#m                   B
+ Look into My eyes and say you don't believe
+.A             B              C#m
+ All of this I did to be with you
+.C#m                 B
+ Darkness in the sky as My Father tried
+.A             B               A
+ And then He turned away and then I died
+
+[C]
+.A                           B
+ Follow Me, choose to follow Me
+.A                 B                  C#m
+ Take a chance and place your hand in Mine
+.A                    B
+ Call on Me, let your life see the spring
+.A               B             C#m     C#m/Eb
+ Let the adventure of your life begin tonight
+.A            B             E       /F#m
+ Let the rest of your life begin tonight
+
+[V3]
+.C#m                      B
+ More than just to die - I came to show the way
+.A               B                 C#m
+ Knowing of the cost to reach you
+.C#m                 B
+ Darkness in the sky as My Father tried
+.A         B              A
+ Giving all He had and then I died"
     end
   end
 end

@@ -12,7 +12,7 @@ class OpensongLyricFormatter
       end
 
       if type == "lyrics"
-        line = " #{line}"
+        line = " #{line}".sub(/ $/, "")
       end
 
       line

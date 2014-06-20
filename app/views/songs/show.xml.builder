@@ -4,5 +4,5 @@ xml.song do |song|
   song.copyright @song.copyright
   song.ccli @song.ccli
   song.key @song.key
-  song.lyrics OpensongLyricFormatter.new.format(@song.__getobj__) + "\n"
+  song.lyrics OpensongLyricFormatter.new.format(@song) + "\n"
 end

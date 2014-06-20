@@ -20,7 +20,7 @@ class SongPresenter < SimpleDelegator
 
   def to_chord_lines
     super(transpose: transpose_distance).map { |type, line|
-      [type, Rack::Utils.escape_html(line).gsub(" ", "&nbsp;").html_safe]
+      [type, line]
     }
   end
 
