@@ -16,7 +16,7 @@ class LineParser
       line = section
     end
 
-    [type, Rack::Utils.escape_html(line).gsub(" ", "&nbsp;").html_safe]
+    [type, line]
   end
 
   private

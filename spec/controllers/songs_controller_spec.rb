@@ -49,10 +49,25 @@ RSpec.describe SongsController, :type => :controller do
   end
 
   describe "GET show" do
+    let(:song) { Song.create! valid_attributes }
     it "assigns the requested song as @song" do
-      song = Song.create! valid_attributes
       get :show, {:id => song.to_param}, valid_session
       expect(assigns(:song)).to eq(song)
+    end
+
+    context "XML" do
+      it "assigns the attachment disposition" do
+        get :show, {:id => song.to_param, format: 'xml'}, valid_session
+        expect(assigns(:song)).to eq(song)
+        expect(response.headers["Content-Disposition"]).to eq "attachment;filename=\"#{song.title}\""
+      end
+
+      it "sets the content type to application/octet-stream" do
+        # this prevents browsers from adding the .xml to the file extension
+        get :show, {:id => song.to_param, format: 'xml'}, valid_session
+        expect(assigns(:song)).to eq(song)
+        expect(response.headers["Content-Type"]).to eq "application/octet-stream"
+      end
     end
   end
 

@@ -14,6 +14,10 @@ class SongsController < ApplicationController
     @song = SongPresenter.new(@song, params[:transpose] || 0)
     respond_to do |format|
       format.html
+      format.xml do
+        response.headers["Content-Disposition"] = "attachment;filename=\"#{@song.title}\""
+        response.headers["Content-Type"] = "application/octet-stream" # prevents browsers from adding file extensions
+      end
       format.pdf do
         render pdf: @song.title, layout: 'print.html',
           margin: {

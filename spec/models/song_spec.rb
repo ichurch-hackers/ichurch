@@ -26,25 +26,21 @@ The river in the desert
       )
     }
 
-    def escape(str)
-      str.gsub(" ", "&nbsp;")
-    end
-
     it "returns an array of tuples [css : content]" do
       chord_lines = song.to_chord_lines
       expect(chord_lines).to eq [
-        ["section", escape("Verse 1")],
-        ["chords", escape("C   G   D")],
-        ["lyrics", escape("The river in the desert")],
+        ["section", "Verse 1"],
+        ["chords", "C   G   D"],
+        ["lyrics", "The river in the desert"],
       ]
     end
 
     it "optionally transposes the chords" do
       chord_lines = song.to_chord_lines(transpose: 1)
       expect(chord_lines).to eq [
-        ["section", escape("Verse 1")],
-        ["chords", escape("C#  G#  Eb")],
-        ["lyrics", escape("The river in the desert")],
+        ["section", "Verse 1"],
+        ["chords", "C#  G#  Eb"],
+        ["lyrics", "The river in the desert"],
       ]
     end
   end

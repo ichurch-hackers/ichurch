@@ -17,7 +17,7 @@
     - @song.sections.each do |section|
       .song-section-wrapper
         - section.each do |css, line|
-          div class="#{css}" = line
+          div class="#{css}" == Rack::Utils.escape_html(line).gsub(" ", "&nbsp;")
 
 - if @song.copyright.present?
   .row.copyright
