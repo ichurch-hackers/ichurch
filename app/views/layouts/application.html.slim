@@ -37,11 +37,11 @@ html lang="en"
 
     .container
       .row
-        div class="#{content_for?(:sidebar) ? "col-lg-9" : "col-lg-12"}"
+        div class="#{content_for?(:sidebar) ? "col-md-9" : "col-md-12"}"
           = bootstrap_flash
           = yield
         - if content_for?(:sidebar)
-          .col-lg-3#sidebar
+          .col-md-3#sidebar
             .well.sidebar-nav
               = yield(:sidebar)
 
