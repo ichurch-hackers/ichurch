@@ -13,7 +13,10 @@ class SongsController < ApplicationController
   def show
     @song = SongPresenter.new(@song, params[:transpose] || 0)
     respond_to do |format|
-      format.html
+      format.html do
+        Song.increment_counter :view_count, params[:id]
+      end
+
       format.xml do
         response.headers["Content-Disposition"] = "attachment;filename=\"#{@song.title}\""
         response.headers["Content-Type"] = "application/octet-stream" # prevents browsers from adding file extensions

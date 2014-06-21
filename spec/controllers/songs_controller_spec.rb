@@ -50,9 +50,17 @@ RSpec.describe SongsController, :type => :controller do
 
   describe "GET show" do
     let(:song) { Song.create! valid_attributes }
-    it "assigns the requested song as @song" do
-      get :show, {:id => song.to_param}, valid_session
-      expect(assigns(:song)).to eq(song)
+    context "HTML" do
+      it "assigns the requested song as @song" do
+        get :show, {:id => song.to_param}, valid_session
+        expect(assigns(:song)).to eq(song)
+      end
+
+      it "increments the view count" do
+        expect {
+          get :show, {:id => song.to_param}, valid_session
+        }.to change { song.reload.view_count }.by 1
+      end
     end
 
     context "XML" do
