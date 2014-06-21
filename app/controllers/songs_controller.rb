@@ -20,7 +20,9 @@ class SongsController < ApplicationController
       format.xml do
         response.headers["Content-Disposition"] = "attachment;filename=\"#{@song.title}\""
         response.headers["Content-Type"] = "application/octet-stream" # prevents browsers from adding file extensions
+        Song.increment_counter :opensong_download_count, params[:id]
       end
+
       format.pdf do
         render pdf: @song.title, layout: 'print.html',
           margin: {

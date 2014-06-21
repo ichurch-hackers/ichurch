@@ -76,6 +76,12 @@ RSpec.describe SongsController, :type => :controller do
         expect(assigns(:song)).to eq(song)
         expect(response.headers["Content-Type"]).to eq "application/octet-stream"
       end
+
+      it "increments the opensong download count" do
+        expect {
+          get :show, {:id => song.to_param, format: 'xml'}, valid_session
+        }.to change { song.reload.opensong_download_count }.by 1
+      end
     end
   end
 
