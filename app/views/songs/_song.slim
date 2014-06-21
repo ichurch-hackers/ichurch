@@ -11,12 +11,11 @@ h3 = @song.title
     .alert.alert-warning
       p = @song.version_comment
 
-div
-  .song-content
-    - @song.sections.each do |section|
-      .song-section-wrapper
-        - section.each do |css, line|
-          div class="#{css}" == Rack::Utils.escape_html(line).gsub(" ", "&nbsp;")
+.song-content
+  - @song.sections.each do |section|
+    .song-section-wrapper
+      - section.each do |css, line|
+        div class="#{css}" == Rack::Utils.escape_html(line).gsub(" ", "&nbsp;")
 
 - if @song.copyright.present?
   .copyright
