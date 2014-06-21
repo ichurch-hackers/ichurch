@@ -19,9 +19,7 @@ class SongPresenter < SimpleDelegator
   end
 
   def to_chord_lines
-    super(transpose: transpose_distance).map { |type, line|
-      [type, line]
-    }
+    super(transpose: transpose_distance)
   end
 
   def sections
