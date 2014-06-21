@@ -24,6 +24,7 @@ class SongsController < ApplicationController
       end
 
       format.pdf do
+        Song.increment_counter :pdf_download_count, params[:id]
         render pdf: @song.title, layout: 'print.html',
           margin: {
             left: 15, top: 12

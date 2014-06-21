@@ -83,6 +83,14 @@ RSpec.describe SongsController, :type => :controller do
         }.to change { song.reload.opensong_download_count }.by 1
       end
     end
+
+    context "PDF" do
+      it "increments the pdf download count" do
+        expect {
+          get :show, {id: song.to_param, format: 'pdf'}, valid_session
+        }.to change { song.reload.pdf_download_count }.by 1
+      end
+    end
   end
 
   describe "GET new" do
