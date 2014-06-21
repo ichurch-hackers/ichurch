@@ -1,18 +1,17 @@
 - model_class = Song
-.row
-  h3 = @song.title
+h3 = @song.title
 
-.row.author
+.author
   span = @song.author_ccli
   - if @song.key.present?
     span.key Key: #{@song.key}
 
 - if @song.version_comment.present?
-  .row.version-comment
+  .version-comment
     .alert.alert-warning
       p = @song.version_comment
 
-.row
+div
   .song-content
     - @song.sections.each do |section|
       .song-section-wrapper
@@ -20,7 +19,7 @@
           div class="#{css}" == Rack::Utils.escape_html(line).gsub(" ", "&nbsp;")
 
 - if @song.copyright.present?
-  .row.copyright
+  .copyright
     p
       strong = model_class.human_attribute_name(:copyright) + ':'
       '

@@ -1,13 +1,14 @@
 - content_for :sidebar do
   ul.nav.nav-list
+    li = link_to t('.edit', :default => t("helpers.links.edit")), edit_song_path(@song)
+    li = link_to t('.destroy', :default => "Delete"), song_path(@song), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }
     li = link_to "Print as PDF", song_path(@song, format: 'pdf', transpose: @song.transpose_distance)
     li = link_to "Download for Opensong", song_path(@song, format: 'xml', transpose: @song.transpose_distance)
-    li = select_tag "transpose", options_for_select(@song.transpose_distances, @song.transpose_distance)
+    li
+      div
+        label for="transpose" Transpose
+      = select_tag "transpose", options_for_select(@song.transpose_distances, @song.transpose_distance)
 
 = render 'song'
 
 = link_to t('.back', :default => t("helpers.links.back")), songs_path, :class => 'btn btn-default'
-  /'
-  /= link_to t('.edit', :default => t("helpers.links.edit")), edit_song_path(@song), :class => 'btn btn-default'
-  /'
-  /= link_to t('.destroy', :default => t("helpers.links.destroy")), song_path(@song), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
