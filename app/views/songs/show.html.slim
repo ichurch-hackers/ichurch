@@ -1,17 +1,17 @@
 - content_for :sidebar do
   ul.nav.nav-list
-    li = link_to edit_song_path(@song) do
+    li = link_to edit_song_path(@song), title: "Edit" do
       i.fa.fa-edit
-      |  Edit
-    li = link_to song_path(@song), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) } do
+      span.label--description  Edit
+    li = link_to song_path(@song), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, title: "Delete" do
       i.fa.fa-times
-      |  Delete
-    li = link_to song_path(@song, format: 'pdf', transpose: @song.transpose_distance) do
+      span.label--description  Delete
+    li = link_to song_path(@song, format: 'pdf', transpose: @song.transpose_distance), title: "Print as PDF" do
       i.fa.fa-file-pdf-o
-      |  Print as PDF
-    li = link_to song_path(@song, format: 'xml', transpose: @song.transpose_distance) do
+      span.label--description  Print as PDF
+    li = link_to song_path(@song, format: 'xml', transpose: @song.transpose_distance), title: "Download for OpenSong" do
       i.fa.fa-music
-      |  Download for OpenSong
+      span.label--description  Download for OpenSong
     li
       span.transpose-field
         label for="transpose" Transpose
