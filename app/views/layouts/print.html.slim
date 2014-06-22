@@ -4,7 +4,7 @@ html
     = wicked_pdf_stylesheet_link_tag 'pdf'
     css:
       .song-content {
-        font-size: #{@song.body_font_size.presence.try(:to_i) || 16}px;
+        font-size: #{@song.body_font_size.presence.try(:to_i) || 12}pt;
       }
 
   body
