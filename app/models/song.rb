@@ -4,6 +4,8 @@ class Song < ActiveRecord::Base
   CHROMATIC_SCALE = %w(Ab A A# Bb B C C# Db D D# Eb E F F# Gb G G#)
 
   validates :title, :content, presence: true
+  validates :body_font_size, numericality: { greater_than_or_equal_to: 10,
+                                             less_than_or_equal_to: 20 }, allow_blank: true
   validates :key, inclusion: CHROMATIC_SCALE
 
   include PgSearch
