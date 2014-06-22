@@ -1,5 +1,8 @@
 - model_class = Song
-h3 = @song.title
+.title
+  = link_to songs_path do
+    i.link--back.fa.fa-arrow-circle-left.no-print
+  h3 = @song.title
 
 .author
   span = @song.author_ccli

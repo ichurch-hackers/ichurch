@@ -1,14 +1,20 @@
 - content_for :sidebar do
   ul.nav.nav-list
-    li = link_to t('.edit', :default => t("helpers.links.edit")), edit_song_path(@song)
-    li = link_to t('.destroy', :default => "Delete"), song_path(@song), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }
-    li = link_to "Print as PDF", song_path(@song, format: 'pdf', transpose: @song.transpose_distance)
-    li = link_to "Download for Opensong", song_path(@song, format: 'xml', transpose: @song.transpose_distance)
+    li = link_to edit_song_path(@song), title: "Edit" do
+      i.fa.fa-edit
+      span.label--description  Edit
+    li = link_to song_path(@song), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, title: "Delete" do
+      i.fa.fa-times
+      span.label--description  Delete
+    li = link_to song_path(@song, format: 'pdf', transpose: @song.transpose_distance), title: "Print as PDF" do
+      i.fa.fa-file-pdf-o
+      span.label--description  Print as PDF
+    li = link_to song_path(@song, format: 'xml', transpose: @song.transpose_distance), title: "Download for OpenSong" do
+      i.fa.fa-music
+      span.label--description  Download for OpenSong
     li
-      div
+      span.transpose-field
         label for="transpose" Transpose
-      = select_tag "transpose", options_for_select(@song.transpose_distances, @song.transpose_distance)
+        = select_tag "transpose", options_for_select(@song.transpose_distances, @song.transpose_distance)
 
 = render 'song'
-
-= link_to t('.back', :default => t("helpers.links.back")), songs_path, :class => 'btn btn-default'

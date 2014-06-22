@@ -21,30 +21,29 @@ html lang="en"
   body
     .navbar.navbar-default.navbar-static-top
         .container
-          button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse"
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
           = link_to image_tag("ichurch-logo.png"), root_path, class: "navbar-brand"
-          .navbar-collapse.collapse.navbar-responsive-collapse.pull-right
-            - if current_user
-              ul.nav.navbar-nav.pull-right
-                li
-                  span Welcome, <b>#{current_user.name}</b>! &nbsp;&nbsp;
-                  span = link_to "Log out", destroy_user_session_path, method: :delete if current_user
-                = form_for :search, url: songs_path, method: :get, html: { class: 'form-inline' } do |f|
-                  = f.text_field :query, value: (params[:search] || {})[:query], autofocus: true, class: 'form-control', placeholder: 'Search...'
+          - if current_user
+            ul.nav.navbar-nav.pull-right
+              li
+                span Welcome, <b>#{current_user.name}</b>! &nbsp;&nbsp;
+                span = link_to "Log out", destroy_user_session_path, method: :delete if current_user
+              = form_for :search, url: songs_path, method: :get, html: { class: 'form-inline' } do |f|
+                = f.text_field :query, value: (params[:search] || {})[:query], autofocus: true, class: 'form-control', placeholder: 'Search...'
 
     .container
       .row
-        div class="#{content_for?(:sidebar) ? "col-md-9" : "col-md-12"}"
+        div class="#{content_for?(:sidebar) ? "col-sm-8 col-md-9" : "col-md-12"}"
           = bootstrap_flash
           = yield
         - if content_for?(:sidebar)
-          .col-md-3#sidebar
+          .col-sm-4.col-md-3#sidebar
             .well.sidebar-nav
               = yield(:sidebar)
 
     footer
       .container
-        p.text-muted &copy; #{Time.now.year} #{link_to("iChurch on Rails", "https://github.com/ichurch-hackers/ichurch")}
+        p.text-muted
+          ' &copy; #{Time.now.year}
+          = link_to "https://github.com/ichurch-hackers/ichurch" do
+            i.fa.fa-github
+            |  iChurch on Rails

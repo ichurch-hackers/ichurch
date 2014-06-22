@@ -29,6 +29,7 @@ gem 'bootstrap-kaminari-views'
 gem 'bootstrap-sass'
 gem 'cancancan'
 gem 'devise'
+gem 'font-awesome-rails'
 gem 'foreman'
 gem 'kaminari'
 gem 'newrelic_rpm'
@@ -38,6 +39,7 @@ gem 'puma'
 gem 'slim-rails'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 gem 'wicked_pdf'
+
 
 group :test do
   gem 'factory_girl_rails'
