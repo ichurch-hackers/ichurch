@@ -48,7 +48,7 @@ describe SongPresenter do
         ["C#", -3],
         ["D", -2],
         ["Eb", -1],
-        ["E", 0],
+        ["E (original)", 0],
         ["F", 1],
         ["F#", 2],
         ["G", 3],

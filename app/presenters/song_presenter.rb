@@ -40,7 +40,13 @@ class SongPresenter < SimpleDelegator
 
   def transpose_distances
     ChordTransposer::SCALE.map { |note|
-      [note, ChordTransposer.distance(__getobj__.key, note)]
+      distance = ChordTransposer.distance(__getobj__.key, note)
+      label = note
+      if distance == 0
+        label = "#{label} (original)"
+      end
+
+      [label, distance]
     }
   end
 end
