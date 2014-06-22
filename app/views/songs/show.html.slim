@@ -18,5 +18,3 @@
         = select_tag "transpose", options_for_select(@song.transpose_distances, @song.transpose_distance)
 
 = render 'song'
-
-= link_to t('.back', :default => t("helpers.links.back")), songs_path, :class => 'btn btn-default'
