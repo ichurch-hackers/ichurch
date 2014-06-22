@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
 
 ruby '2.1.2'
 
@@ -30,6 +29,7 @@ gem 'bootstrap-kaminari-views'
 gem 'bootstrap-sass'
 gem 'cancancan'
 gem 'devise'
+gem 'font-awesome-rails'
 gem 'foreman'
 gem 'kaminari'
 gem 'newrelic_rpm'
@@ -40,7 +40,6 @@ gem 'slim-rails'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 gem 'wicked_pdf'
 
-gem 'rails-assets-fontawesome'
 
 group :test do
   gem 'factory_girl_rails'
