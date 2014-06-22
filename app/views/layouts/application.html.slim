@@ -42,8 +42,12 @@ html lang="en"
 
     footer
       .container
-        p.text-muted
+        span.text-muted
           ' &copy; #{Time.now.year}
           = link_to "https://github.com/ichurch-hackers/ichurch" do
             i.fa.fa-github
             |  iChurch on Rails
+
+        span.text-muted.pull-right
+          ' Having a problem or want a new feature? File an issue on
+          = link_to "Github", "https://github.com/ichurch-hackers/ichurch/issues"
