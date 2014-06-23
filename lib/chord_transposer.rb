@@ -80,7 +80,7 @@ class ChordTransposer
       output.insert(position, insert_string)
     end
 
-    output.strip
+    output.sub(/ *$/, "")
   end
 
   def self.transpose_chord(chord, intervals)

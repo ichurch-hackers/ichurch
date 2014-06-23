@@ -31,7 +31,7 @@ describe OpensongLyricFormatter do
  All of this I did to be with you
 .C#m                 B
  Darkness in the sky as My Father cried
-.A               B             C#m
+.     A               B             C#m
  And then He turned away and then I died
 
 [V2]
@@ -51,19 +51,19 @@ describe OpensongLyricFormatter do
  Take a chance and place your hand in Mine
 .A                    B
  Call on Me, let your life see the spring
-.A               B             C#m     C#m/Eb
+.          A               B             C#m     C#m/D#
  Let the adventure of your life begin tonight
-.A            B             E       /F#m
+.        A            B             E       /F#m
  Let the rest of your life begin tonight
 
 [V3]
-.C#m                      B
+. C#m                      B
  More than just to die - I came to show the way
 .A               B                 C#m
  Knowing of the cost to reach you
 .C#m                 B
  Darkness in the sky as My Father tried
-.A         B              A
+.    A         B              A
  Giving all He had and then I died"
     end
   end
