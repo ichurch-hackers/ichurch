@@ -12,6 +12,11 @@ describe LineParser do
         line = LineParser.new.parse("Em/D Fmaj7 C#/F# /Gmaj7")
         expect(line).to eq ["chords", "Em/D Fmaj7 C#/F# /Gmaj7"]
       end
+
+      it "detects power chords" do
+        line = LineParser.new.parse("A5/D#")
+        expect(line).to eq ["chords", "A5/D#"]
+      end
     end
 
     context "with lyrics" do

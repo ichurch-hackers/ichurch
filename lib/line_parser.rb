@@ -27,7 +27,7 @@ class LineParser
       is_chord = "ABCDEFG/".include?(chord[0])
 
       if is_chord && chord.length > 0
-        is_chord = chord[1..-1] =~ /^[b|#]?([A-Za-z\/#]*?\d?)$/
+        is_chord = chord[1..-1] =~ /^[b|#]?([1-9A-Za-z\/#]*?)$/
       end
 
       is_chord
