@@ -24,13 +24,7 @@ class LineParser
     chords = line.squeeze(" ").split(" ")
 
     chords.any? && chords.all? { |chord|
-      is_chord = "ABCDEFG/".include?(chord[0])
-
-      if is_chord && chord.length > 0
-        is_chord = chord[1..-1] =~ /^[b|#]?([1-9A-Za-z\/#]*?)$/
-      end
-
-      is_chord
+      chord =~ /^[A-G\/][b|#]?([1-9A-Gadijgmnsu\/#b]*?)$/
     }
   end
 
