@@ -17,6 +17,11 @@ describe LineParser do
         line = LineParser.new.parse("A5/D#")
         expect(line).to eq ["chords", "A5/D#"]
       end
+      
+      it "detects lyric words that look like chords" do
+        line = LineParser.new.parse("Awesome")
+        expect(line).to eq ["lyrics", "Awesome"]
+      end
     end
 
     context "with lyrics" do
