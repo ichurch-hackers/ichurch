@@ -4,8 +4,8 @@ describe LineParser do
   describe "#parse" do
     context "with valid chords" do
       it "detects a chord line" do
-        line = LineParser.new.parse("Em D Fmaj7 C#")
-        expect(line).to eq ["chords", "Em D Fmaj7 C#"]
+        line = LineParser.new.parse("Em  D Fmaj7 C#")
+        expect(line).to eq ["chords", "Em  D Fmaj7 C#"]
       end
 
       it "allows a slash in chords" do
@@ -46,6 +46,16 @@ describe LineParser do
       it "detects separated chords" do
         line = LineParser.new.parse("Ddim/Eb")
         expect(line).to eq ["chords", "Ddim/Eb"]
+      end
+
+      it "detects double flats" do
+        line = LineParser.new.parse("Dbb")
+        expect(line).to eq ["chords", "Dbb"]
+      end
+
+      it "detects double sharps" do
+        line = LineParser.new.parse("C##")
+        expect(line).to eq ["chords", "C##"]
       end
     end
 
