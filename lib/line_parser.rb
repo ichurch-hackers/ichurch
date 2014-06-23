@@ -8,7 +8,7 @@ class LineParser
 
     if chords?(line)
       type = "chords"
-      line = ChordTransposer.new(line).transpose(@transpose)
+      line = @transpose == 0 ? line : ChordTransposer.new(line).transpose(@transpose)
     end
 
     if section = section?(line)
