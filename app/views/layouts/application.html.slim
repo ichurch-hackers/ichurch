@@ -23,6 +23,9 @@ html lang="en"
         .container
           = link_to image_tag("ichurch-logo.png"), root_path, class: "navbar-brand"
           - if current_user
+            ul.nav.navbar-nav id="primary-links"
+              li
+                span = link_to "Add new song", "/songs/new", class: 'btn btn-default'
             ul.nav.navbar-nav.pull-right
               li
                 span Welcome, <b>#{current_user.name}</b>! &nbsp;&nbsp;
