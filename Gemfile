@@ -39,7 +39,7 @@ gem 'puma'
 gem 'slim-rails'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 gem 'wicked_pdf'
-
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :test do
   gem 'factory_girl_rails'
