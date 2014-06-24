@@ -50,9 +50,17 @@ RSpec.describe SongsController, :type => :controller do
 
   describe "GET show" do
     let(:song) { Song.create! valid_attributes }
-    it "assigns the requested song as @song" do
-      get :show, {:id => song.to_param}, valid_session
-      expect(assigns(:song)).to eq(song)
+    context "HTML" do
+      it "assigns the requested song as @song" do
+        get :show, {:id => song.to_param}, valid_session
+        expect(assigns(:song)).to eq(song)
+      end
+
+      it "increments the view count" do
+        expect {
+          get :show, {:id => song.to_param}, valid_session
+        }.to change { song.reload.view_count }.by 1
+      end
     end
 
     context "XML" do
@@ -67,6 +75,20 @@ RSpec.describe SongsController, :type => :controller do
         get :show, {:id => song.to_param, format: 'xml'}, valid_session
         expect(assigns(:song)).to eq(song)
         expect(response.headers["Content-Type"]).to eq "application/octet-stream"
+      end
+
+      it "increments the opensong download count" do
+        expect {
+          get :show, {:id => song.to_param, format: 'xml'}, valid_session
+        }.to change { song.reload.opensong_download_count }.by 1
+      end
+    end
+
+    context "PDF" do
+      it "increments the pdf download count" do
+        expect {
+          get :show, {id: song.to_param, format: 'pdf'}, valid_session
+        }.to change { song.reload.pdf_download_count }.by 1
       end
     end
   end
