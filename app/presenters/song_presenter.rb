@@ -26,7 +26,7 @@ class SongPresenter < SimpleDelegator
     [].tap do |result|
       current_section = []
       to_chord_lines.each do |css, line|
-        if current_section.any? && css == "section"
+        if current_section.any? && (css == "section" || (css == "lyrics" && line.strip.blank?))
           result << current_section
           current_section = []
         end

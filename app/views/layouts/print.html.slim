@@ -6,6 +6,9 @@ html
       .song-content {
         font-size: #{@song.body_font_size.presence.try(:to_i) || 12}pt;
       }
+      .song-content .lyrics {
+        min-height: #{@song.body_font_size.presence.try(:to_i) || 12}pt;
+      }
 
   body
     = yield
