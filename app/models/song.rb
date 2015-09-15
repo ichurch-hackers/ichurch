@@ -10,7 +10,10 @@ class Song < ActiveRecord::Base
 
   include PgSearch
   pg_search_scope :full_search,
-                  against:  [:title, :content, :author],
+                  against: {
+                    title: 'A',
+                    content: 'B'
+                  },
                   using: {
                     tsearch: {
                       dictionary: "english",
