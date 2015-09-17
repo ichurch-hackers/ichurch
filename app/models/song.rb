@@ -25,7 +25,7 @@ class Song < ActiveRecord::Base
 
   def self.search(query)
     return all if query.blank?
-    full_search(query)
+    where("title ilike ?", "%#{query}%") | where("content ilike ?", "%#{query}%")
   end
 
   def first_line
