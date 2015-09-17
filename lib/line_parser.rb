@@ -21,7 +21,7 @@ class LineParser
 
   private
   def chords?(line)
-    chords = line.strip.squeeze(" ").split(/ |\//).reject { |c| c.blank? }
+    chords = line.strip.squeeze(" ").split(/ |\/|\t/).reject { |c| c.blank? }
     chords.any? && chords.all? { |chord|
       chord =~ /^[A-G][#b]{0,2}(add|aug|dim|maj|sus|m)?\d?$/
     }

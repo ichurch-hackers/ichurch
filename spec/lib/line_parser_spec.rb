@@ -8,6 +8,11 @@ describe LineParser do
         expect(line).to eq ["chords", "Em  D Fmaj7 C#"]
       end
 
+      it "allows for tab separation" do
+        line = LineParser.new.parse("Em\tD Fmaj7 C#")
+        expect(line).to eq ["chords", "Em\tD Fmaj7 C#"]
+      end
+
       it "allows a slash in chords" do
         line = LineParser.new.parse("Em/D Fmaj7 C#/F# /Gmaj7")
         expect(line).to eq ["chords", "Em/D Fmaj7 C#/F# /Gmaj7"]
