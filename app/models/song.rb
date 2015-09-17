@@ -25,7 +25,7 @@ class Song < ActiveRecord::Base
 
   def self.search(query)
     return all if query.blank?
-    where("title ilike ?", "%#{query}%") | where("content ilike ?", "%#{query}%")
+    Kaminari.paginate_array(where("title ilike ?", "%#{query}%") | where("content ilike ?", "%#{query}%"))
   end
 
   def first_line
