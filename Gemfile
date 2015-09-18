@@ -33,9 +33,9 @@ gem 'font-awesome-rails'
 gem 'foreman'
 gem 'kaminari'
 gem 'newrelic_rpm'
+gem 'passenger'
 gem 'pg'
 gem 'pg_search'
-gem 'puma'
 gem 'slim-rails'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 gem 'wicked_pdf'
@@ -62,4 +62,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
