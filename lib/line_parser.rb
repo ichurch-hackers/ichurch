@@ -16,7 +16,7 @@ class LineParser
       line = section
     end
 
-    [type, line]
+    return type, line
   end
 
   private

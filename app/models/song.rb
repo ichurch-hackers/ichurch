@@ -24,7 +24,7 @@ class Song < ActiveRecord::Base
                   ignoring: :accents
 
   def self.search(query)
-    return all if query.blank?
+    return order(:title) if query.blank?
     Kaminari.paginate_array(where("title ilike ?", "%#{query}%") | where("content ilike ?", "%#{query}%"))
   end
 
