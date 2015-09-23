@@ -32,5 +32,17 @@ module Ichurch
       generate.test_framework :rspec
       generate.view_specs false
     end
+
+    config.log_tags = [
+                       ->(req) {
+                         begin
+                           session_key = Rails.application.config.session_options[:key]
+                           user = User.find(req.cookie_jar.encrypted[session_key]["warden.user.user.key"][0][0])
+                           user.email
+                         rescue
+                           "guest"
+                         end
+                       }
+                      ]
   end
 end
