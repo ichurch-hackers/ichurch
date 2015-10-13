@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'bootstrap-kaminari-views'
 gem 'bootstrap-sass'
 gem 'cancancan'
@@ -34,12 +35,12 @@ gem 'foreman'
 gem 'kaminari'
 gem 'newrelic_rpm'
 gem 'passenger'
-gem 'pg'
 gem 'pg_search'
+gem 'pg'
+gem 'rollbar'
 gem 'slim-rails'
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 gem 'wicked_pdf'
-gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :test do
   gem 'factory_girl_rails'
