@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :songs
 
   devise_for :users
-  get "/resources/songs/song.view.php", to: redirect('/')
+  get "/resources/songs", to: redirect('/')
+  get "/resources/songs*wildcard", to: redirect('/')
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
